@@ -13,3 +13,13 @@ let mapleader = ","
 runtime bundle/pathogen/autoload/pathogen.vim
 
 call pathogen#infect()
+
+
+"Formatting
+""""""""""""""""""""""
+
+set tabstop=4
+set shiftwidth=4
+set softtabstop=4
+set expandtab
+
