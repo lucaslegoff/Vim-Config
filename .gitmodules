@@ -1,6 +1,6 @@
 [submodule ".vim/bundle/pathodgen"]
-	path = .vim/bundle/pathodgen
+	path = vim/bundle/pathodgen
 	url = https://github.com/tpope/vim-pathogen.git
 [submodule ".vim/bundle/vim-scala"]
-	path = .vim/bundle/vim-scala
+	path = vim/bundle/vim-scala
 	url = https://github.com/bdd/vim-scala.git
