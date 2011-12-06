@@ -1,5 +1,5 @@
 import sys
-import os.path
+import os
 import shutil
 
 def main():
@@ -24,6 +24,10 @@ def main():
         os.mkdir(backupPath)
 
     shutil.move(os.path.join(homeFolderPath, prefix + "vimrc"), os.path.join(backupPath, prefix + "vimrc"))
+
+    vimrcDestPath = os.path.join(homeFolderPath, prefix + "vimrc")
+    print "Copying vimrc to " + vimrcDestPath
+    os.symlink(os.path.join(os.getcwd(), "vimrc"), vimrcDestPath) 
 
 if __name__ == "__main__":
     main()
