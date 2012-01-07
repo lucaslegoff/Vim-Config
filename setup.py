@@ -5,7 +5,7 @@ import shutil
 def main(junctionPath):
     currentSystem = sys.platform
     print "System is ", currentSystem
-
+    
     if (currentSystem == "win32"):
 	import win32file
         prefix = "_"

@@ -1,2 +1,0 @@
-" No beeps
-set visualbell
