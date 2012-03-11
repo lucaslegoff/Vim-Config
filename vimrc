@@ -13,9 +13,16 @@ set encoding=utf-8
 """"""""""""""""""""""
 filetype off
 
-runtime bundle/pathogen/autoload/pathogen.vim
+set rtp+=~/.vim/bundle/vundle/
+call vundle#rc()
 
-call pathogen#infect()
+Bundle 'gmarik/vundle'
+
+Bundle 'surround.vim'
+
+"runtime bundle/pathogen/autoload/pathogen.vim
+
+"call pathogen#infect()
 syntax on
 filetype plugin indent on
 
@@ -73,7 +80,7 @@ set hlsearch
 
 "Visual
 """"""""""""""""""""""
-colorscheme chela_light
+"colorscheme chela_light
 
 "Mappings
 """"""""""""""""""""""
