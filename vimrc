@@ -22,9 +22,9 @@ filetype plugin indent on
 "Formatting
 """"""""""""""""""""""
 
-set tabstop=4
-set shiftwidth=4
-set softtabstop=4
+set tabstop=2
+set shiftwidth=2
+set softtabstop=2
 set expandtab
 
 set autoindent
@@ -53,7 +53,12 @@ set wildmenu
 "alway display the status line, no matter what
 set laststatus=2
 
-set undofile
+"set undofile
+
+"Font
+if has('gui_running')
+    set guifont=DejaVu_Sans_Mono:h10:cANSI
+endif
 
 "Search
 """"""""""""""""""""""

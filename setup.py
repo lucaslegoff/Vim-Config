@@ -1,3 +1,10 @@
+#  Setup environnment with vimrc, gvimrc and vim plugin directory
+#
+# on windows, files should be the same partitions as vim config files (probably C:)
+# for file hardlink to work
+# and require the use of the junction.exe program for directory symlink
+# (to provide as an argument)
+
 import sys
 import os
 import shutil
@@ -18,27 +25,31 @@ def main(junctionPath):
     print "vim directory : ", vimDirectory
 
     homeFolderPath = os.path.expanduser('~')
+    print "Home Folder : " + homeFolderPath
 
-    backupPath = os.path.join(homeFolderPath,  prefix + "vimfilesBackup")
-    if not os.path.exists(backupPath):
-        print "Backing up old files..."
+#    backupPath = os.path.join(homeFolderPath,  prefix + "vimfilesBackup")
+#    print "BackUp path : " + backupPath
+#   if not os.path.exists(backupPath):
+#       print "Backing up old files..."
+#       os.mkdir(backupPath)
 
-        os.mkdir(backupPath)
     if (os.path.exists(os.path.join(homeFolderPath, prefix + "vimrc"))):
-        shutil.move(os.path.join(homeFolderPath, prefix + "vimrc"), os.path.join(backupPath, prefix + "vimrc"))
+        os.rename(os.path.join(homeFolderPath, prefix + "vimrc"), os.path.join(homeFolderPath, prefix + "vimrc.bak"))
     if (os.path.exists(os.path.join(homeFolderPath, prefix + "gvimrc"))):
-        shutil.move(os.path.join(homeFolderPath, prefix + "gvimrc"), os.path.join(backupPath, prefix + "gvimrc"))
+        os.rename(os.path.join(homeFolderPath, prefix + "gvimrc"), os.path.join(homeFolderPath, prefix + "gvimrc,bak"))
     if (os.path.exists(os.path.join(homeFolderPath, vimDirectory))):
-        shutil.move(os.path.join(homeFolderPath, vimDirectory), os.path.join(backupPath, vimDirectory))
+        os.rename(os.path.join(homeFolderPath, vimDirectory), os.path.join(homeFolderPath, vimDirectory + "BackUp"))
 
     if (currentSystem == "win32"):
         vimrcDestPath = os.path.join(homeFolderPath, prefix + "vimrc")
         print "Copying vimrc to " + vimrcDestPath
         win32file.CreateHardLink(vimrcDestPath, os.path.join(os.getcwd(), "vimrc")) 
+#        os.system(junctionPath[0] + ' -s "' + vimrcDestPath + '" "' + os.path.join(os.getcwd(), 'vimrc"'))
 
         gvimrcDestPath = os.path.join(homeFolderPath, prefix + "gvimrc")
         print "Copying gvimrc to " + gvimrcDestPath
-        win32file.CreateHardLink(gvimrcDestPath, os.path.join(os.getcwd(), "vimrc")) 
+        win32file.CreateHardLink(gvimrcDestPath, os.path.join(os.getcwd(), "gvimrc")) 
+#        os.system(junctionPath[0] + ' -s "' + gvimrcDestPath + '" "' + os.path.join(os.getcwd(), 'gvimrc"'))
 
     if (len(junctionPath) > 0):
         vimDirectoryDestPath = os.path.join(homeFolderPath, vimDirectory)
