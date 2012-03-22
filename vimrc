@@ -19,10 +19,21 @@ call vundle#rc()
 Bundle 'gmarik/vundle'
 
 Bundle 'surround.vim'
+Bundle 'The-NERD-tree'
+Bundle 'The-NERD-Commenter'
+Bundle 'EasyMotion'
+Bundle 'Gundo'
+Bundle 'Syntastic'
+Bundle 'Tagbar'
+Bundle 'ZoomWin'
+Bundle 'chela_light'
+Bundle 'ctrlp.vim'
+Bundle 'fugitive.vim'
+Bundle 'matchit.zip'
+Bundle 'snipMate'
+Bundle 'snipmate-snippets'
+Bundle 'Lokaltog/vim-powerline'
 
-"runtime bundle/pathogen/autoload/pathogen.vim
-
-"call pathogen#infect()
 syntax on
 filetype plugin indent on
 
@@ -80,7 +91,7 @@ set hlsearch
 
 "Visual
 """"""""""""""""""""""
-"colorscheme chela_light
+colorscheme chela_light
 
 "Mappings
 """"""""""""""""""""""
