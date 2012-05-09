@@ -1,2 +1,4 @@
 view/
 .DS_Store
+SyncToy*
+vim/

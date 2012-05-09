@@ -43,13 +43,13 @@ def main(junctionPath):
     if (currentSystem == "win32"):
         vimrcDestPath = os.path.join(homeFolderPath, prefix + "vimrc")
         print "Copying vimrc to " + vimrcDestPath
+	#junctions doesn't work for folders so use Hardlink
         win32file.CreateHardLink(vimrcDestPath, os.path.join(os.getcwd(), "vimrc")) 
-#        os.system(junctionPath[0] + ' -s "' + vimrcDestPath + '" "' + os.path.join(os.getcwd(), 'vimrc"'))
 
         gvimrcDestPath = os.path.join(homeFolderPath, prefix + "gvimrc")
         print "Copying gvimrc to " + gvimrcDestPath
+	#junctions doesn't work for folders so use Hardlink
         win32file.CreateHardLink(gvimrcDestPath, os.path.join(os.getcwd(), "gvimrc")) 
-#        os.system(junctionPath[0] + ' -s "' + gvimrcDestPath + '" "' + os.path.join(os.getcwd(), 'gvimrc"'))
 
     if (len(junctionPath) > 0):
         vimDirectoryDestPath = os.path.join(homeFolderPath, vimDirectory)
